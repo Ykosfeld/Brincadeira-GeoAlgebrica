@@ -2,6 +2,9 @@ import turtle
 from math import cos, sin, radians
 
 def Criar_circulo(r):
+    
+    # r é a medida do raio
+
     gershwin = turtle.Turtle()
     gershwin.speed(10)
     gershwin.hideturtle()
@@ -25,6 +28,12 @@ def Calc_pontos(r, a, q):
     return Pontos
 
 def Criar_img(p, q, m, r):
+    
+    # p são os pontos calculados anteriormente
+    # q é a quantidade de pontos utilizados
+    # m é o multiplicador 
+    # r é a medida do raio
+    
     george = turtle.Turtle()
     george.speed(10)
     george.hideturtle()
@@ -45,6 +54,11 @@ def Criar_img(p, q, m, r):
         george.setpos(p[result])
 
 def brincando(r, q, m):
+    
+    # r é a medida do raio
+    # q é a quantidade de pontos 
+    # m é o multiplicador
+    
     ang = radians(360/q)
     Criar_circulo(r)
     calc = Calc_pontos(r, ang, q)
