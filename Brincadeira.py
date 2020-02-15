@@ -21,18 +21,21 @@ def Calc_pontos(r, a, q):
     # a é o valor do angulo em radianos
     # q é a quantidade de pontos 
 
+    global Pontos
     Pontos = []
+    
     for x in range(q):
         Pos_ponto = [r*cos(a*x), r*sin(a*x)]
         Pontos += [Pos_ponto]
-    return Pontos
+    return 
 
-def Criar_img(p, q, m, r):
+def Criar_img(q, m, r):
     
-    # p são os pontos calculados anteriormente
     # q é a quantidade de pontos utilizados
     # m é o multiplicador 
     # r é a medida do raio
+
+    global Pontos
     
     george = turtle.Turtle()
     george.speed(10)
@@ -49,9 +52,9 @@ def Criar_img(p, q, m, r):
         if result >= q:
             result %= q
         george.penup()
-        george.setpos(p[n])
+        george.setpos(Pontos[n])
         george.pendown()
-        george.setpos(p[result])
+        george.setpos(Pontos[result])
 
 def brincando(r, q, m):
     
@@ -61,8 +64,8 @@ def brincando(r, q, m):
     
     ang = radians(360/q)
     Criar_circulo(r)
-    calc = Calc_pontos(r, ang, q)
-    Criar_img(calc, q, m, r)
+    Calc_pontos(r, ang, q)
+    Criar_img(q, m, r)
 
 raio = int(input("Raio: "))
 qnt = int(input("Quantidade de Pontos: "))
